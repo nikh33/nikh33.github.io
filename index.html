@@ -1,433 +1,1048 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nikhil Parihar — Principal Application Software Engineer specialising in enterprise applications, cloud integrations, JavaScript, Oracle Cloud and Generative AI." />
+  <title>Nikhil Parihar | Principal Application Software Engineer</title>
 
-  <head>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1a2c;
+      --panel: rgba(255,255,255,.055);
+      --panel-strong: rgba(255,255,255,.085);
+      --text: #f5f7fb;
+      --muted: #aeb8c7;
+      --accent: #64d5c7;
+      --accent-2: #7da7ff;
+      --accent-3: #f0b86b;
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 24px 70px rgba(0,0,0,.34);
+      --radius: 24px;
+      --max: 1180px;
+    }
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    * { box-sizing: border-box; }
 
-    <title>Nikhil Parihar Portfolio</title>
+    html { scroll-behavior: smooth; }
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(100,213,199,.15), transparent 28rem),
+        radial-gradient(circle at 92% 6%, rgba(125,167,255,.16), transparent 30rem),
+        linear-gradient(180deg, #07111f 0%, #091522 55%, #08111e 100%);
+    }
 
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
-    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    a { color: inherit; }
+    img { max-width: 100%; }
 
-    <!-- Custom styles for this template -->
-    <link href="css/resume.min.css" rel="stylesheet">
+    .shell {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
 
-  </head>
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(7,17,31,.76);
+      border-bottom: 1px solid var(--line);
+    }
 
-  <body id="page-top">
+    .topbar-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">CV</span>
-        <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
-        </span>
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      text-decoration: none;
+      font-weight: 850;
+      letter-spacing: .01em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #06111c;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 8px 24px rgba(100,213,199,.2);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .93rem;
+      font-weight: 650;
+    }
+
+    .nav a:hover { color: var(--text); }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 6rem 0 4rem;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      padding: .5rem .85rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--accent);
+      font-size: .9rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      line-height: 1.12;
+    }
+
+    h1 {
+      margin: 1.15rem 0 1rem;
+      max-width: 900px;
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      letter-spacing: -.065em;
+    }
+
+    .accent-text {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: .8rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      color: #07111f;
+      background: linear-gradient(90deg, var(--accent), #8ce0b5);
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.035);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin-top: 2.3rem;
+    }
+
+    .stat {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.035);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.15rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 1.6rem;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035)),
+        rgba(7,17,31,.45);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -30% auto auto 45%;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125,167,255,.28), transparent 70%);
+      pointer-events: none;
+    }
+
+    .identity {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      color: #06111c;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+
+    .identity h2 {
+      margin-bottom: .35rem;
+      font-size: 1.35rem;
+    }
+
+    .identity p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .focus-list {
+      position: relative;
+      z-index: 1;
+      margin-top: 1.5rem;
+      display: grid;
+      gap: .8rem;
+    }
+
+    .focus-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .9rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+    }
+
+    .focus-item span:last-child {
+      color: var(--muted);
+      font-size: .9rem;
+      text-align: right;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 2rem;
+    }
+
+    .section-head h2 {
+      margin-bottom: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -.045em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      padding: 1.5rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 12px 35px rgba(0,0,0,.12);
+    }
+
+    .card h3 {
+      margin-bottom: .65rem;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      padding: .42rem .68rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(125,167,255,.07);
+      color: #dfe9fb;
+      font-size: .84rem;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .role {
+      position: relative;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.035);
+    }
+
+    .role::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 28px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 5px rgba(100,213,199,.1);
+    }
+
+    .role-meta p {
+      margin: .25rem 0;
+      color: var(--muted);
+    }
+
+    .role-body ul {
+      margin: .8rem 0 0 1.15rem;
+      padding: 0;
+      color: var(--muted);
+    }
+
+    .role-body li + li { margin-top: .45rem; }
+
+    .case-study {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 1rem;
+      padding: 1.2rem;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(100,213,199,.08), rgba(125,167,255,.08));
+    }
+
+    .case-panel {
+      padding: 1.4rem;
+      border-radius: 20px;
+      background: rgba(7,17,31,.5);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .case-panel h3 {
+      font-size: 1.6rem;
+      margin-bottom: .8rem;
+    }
+
+    .case-panel p,
+    .case-panel li {
+      color: var(--muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -40% auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,184,107,.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .project-label {
+      color: var(--accent);
+      font-size: .78rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 850;
+    }
+
+    .project-card p { flex: 1; }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .cert {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .cert-badge {
+      flex: 0 0 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #07111f;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      font-weight: 900;
+    }
+
+    .cert h3 {
+      margin-bottom: .35rem;
+      font-size: 1.05rem;
+    }
+
+    .cert p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .contact-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(100,213,199,.12), rgba(125,167,255,.12)),
+        rgba(255,255,255,.035);
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .section-head,
+      .role,
+      .case-study {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 4rem;
+      }
+
+      .project-grid,
+      .cert-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .timeline::before { display: none; }
+      .role { padding-left: 1.5rem; }
+      .role::before { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        align-items: flex-start;
+        padding: .9rem 0;
+      }
+
+      .nav {
+        justify-content: flex-end;
+        gap: .65rem;
+      }
+
+      .nav a { font-size: .82rem; }
+
+      .stats,
+      .grid-2,
+      .project-grid,
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-panel {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      h1 { font-size: 3.3rem; }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111827;
+      }
+
+      .topbar,
+      .hero-actions,
+      footer {
+        display: none;
+      }
+
+      .hero,
+      section {
+        padding: 18mm 14mm;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .role,
+      .case-study,
+      .hero-card,
+      .contact-panel {
+        box-shadow: none;
+        background: #fff;
+        color: #111827;
+        border: 1px solid #d1d5db;
+      }
+
+      .hero-copy,
+      .section-head p,
+      .card p,
+      .role-meta p,
+      .role-body ul,
+      .case-panel p,
+      .case-panel li,
+      .project-card p,
+      .cert p,
+      .contact-panel p {
+        color: #4b5563;
+      }
+
+      .tag {
+        color: #374151;
+        border-color: #d1d5db;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">NP</span>
+        <span>Nikhil Parihar</span>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#education">Education</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#project">PROJECTS DETAIL</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
 
-    <div class="container-fluid p-0">
-
-      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
-        <div class="my-auto">
-          <h1 class="mb-0">Nikhil
-            <span class="text-primary">Parihar</span>
-          </h1>
-          <div class="subheading mb-5"> 1214, 60 Feet Rd, Old Madiwala, Narayan Gowda Layout, 1st Stage, BTM Layout, Bengaluru, Karnataka 560029 · (800) 557-1508 and (978) 241-8263 ·
-            <a href="mailto:name@email.com">nikhcse33@gmail.com</a>
-          </div>
-          <p class="mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-          <ul class="list-inline list-social-icons mb-0">
-            <li class="list-inline-item">
-              <a href="https://www.facebook.com/nikhil.parihar1">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://www.linkedin.com/in/nikhil-parihar-74a0595b/">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://github.com/nikhilparihar">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
-        <div class="my-auto">
-          <h2 class="mb-5">Experience</h2>
-          <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Senior Software Developer</h3>
-              <div class="subheading mb-3">SourceBits (Bangalore)</div>
-              <!-- <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p> -->
-            </div>
-            <div class="resume-date text-md-right">
-              <span class="text-primary">July 2019 - Present</span>
-            </div>
-          </div>
-
-          <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Product Development Engineer</h3>
-              <div class="subheading mb-3">Sugoi Labs (Bangalore)</div>
-              <!-- <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p> -->
-            </div>
-            <div class="resume-date text-md-right">
-              <span class="text-primary">April 2018 - Present</span>
-            </div>
-          </div>
-
-          <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Senior Web Developer</h3>
-              <div class="subheading mb-3">ITRADICALS Software Solution (Jodhpur)</div>
-              <!-- <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p> -->
-            </div>
-            <div class="resume-date text-md-right">
-              <span class="text-primary">December 2015 - March 2018</span>
-            </div>
-          </div>
-
-        </div>
-
-      </section>
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
-        <div class="my-auto">
-          <h2 class="mb-5">Education</h2>
-
-          <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Rajasthan Technical University</h3>
-              <div class="subheading mb-3">Bachelor of Technology</div>
-              <p>Computer Science Engineer</p>
-            </div>
-            <div class="resume-date text-md-right">
-              <span class="text-primary">August 2011 - May 2015</span>
-            </div>
-          </div>
-
-          <div class="resume-item d-flex flex-column flex-md-row">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Sardar Childeren's School</h3>
-              <div class="subheading mb-3">Science Maths</div>
-            </div>
-            <div class="resume-date text-md-right">
-              <span class="text-primary">August 2010 - May 2011</span>
-            </div>
-          </div>
-		  
-		   <div class="resume-item d-flex flex-column flex-md-row">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Sardar Childeren's School</h3>
-              <div class="subheading mb-3">Rajasthan Board X</div>
-            </div>
-            <div class="resume-date text-md-right">
-              <span class="text-primary">August 2008 - May 2009</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
-        <div class="my-auto">
-          <h2 class="mb-5">Skills</h2>
-
-          <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-          <ul class="list-inline list-icons">
-            <li class="list-inline-item">
-              <i class="devicon-angularjs-plain"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicon-nodejs-plain-wordmark"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicon-php-plain"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicon-amazonwebservices-original"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-bootstrap"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicon-codeigniter-plain-wordmark"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicon-express-original-wordmark"></i>
-            </li>
-             <li class="list-inline-item">
-              <i class="devicons devicon-git-plain-wordmark"></i>
-            </li>
-             <li class="list-inline-item">
-              <i class="devicons devicon-laravel-plain-wordmark"></i>
-            </li>
-             <li class="list-inline-item">
-              <i class="devicons devicon-mongodb-plain-wordmark"></i>
-            </li>
-             <li class="list-inline-item">
-              <i class="devicon-mysql-plain-wordmark"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicon-vuejs-line-wordmark"></i>
-            </li>
-              <li class="list-inline-item">
-              <i class="devicons devicon-yii-plain-wordmark"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-npm"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicon-sequelize-plain-wordmark"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-javascript"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-jquery"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-sass"></i>
-            </li>
-             <li class="list-inline-item">
-              <i class="devicons devicons-html5"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-css3"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicon-slack-plain-wordmark"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicon-ubuntu-plain-wordmark"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicon-atom-original-wordmark"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicon-visualstudio-plain"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicon-ssh-plain"></i>
-            </li>
-          </ul>
-
-          <div class="subheading mb-3">Workflow</div>
-          <ul class="fa-ul mb-0">
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              Mobile-First, Responsive Design</li>
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              Cross Browser Testing &amp; Debugging</li>
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              Cross Functional Teams</li>
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              Agile Development &amp; Scrum</li>
-          </ul>
-        </div>
-      </section>
-
-       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="project">
-        <div class="my-auto">
-          <h2 class="mb-5">Projects Detail</h2>
-
-          <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Toyota Utrust</h3>
-              <div class="subheading mb-3">Angular, Bootstrap, nodejs, npm, JIRA </div>
-              <p>Toyota UTrust is an car selling web application.user can sell or buy new car and admin can maintain stock and review cars.</p>
-            </div>
-          </div>
-
-          <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">HelloSociety (hellosociety.com)</h3>
-              <div class="subheading mb-3">Laravel, MySQL, AWS, Social Platform API, JIRA, Vagrant, OpenVPN</div>
-              <p>HelloSociety has been at the forefront of Influencer marketing since the beginning. Our ability to anticipate
-                and manage client needs around virtually every aspect of Influencer marketing.</p>
-            </div>
-          </div>
-
-           <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Locomo (golocomo.com)</h3>
-              <div class="subheading mb-3">NodeJS, MySQL(Sequlize), AWS, SSL, Googlemap Directional API, JWT, CodeIgniter, Nginx, letsencrypt SSL</div>
-              <p>Locomo enables powerful tasks management for your on - field representatives and monitor the progress
-                with real-time location tracking.</p>
-            </div>
-          </div>
-		  
-		    <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Sbarro (api.sugoidev.com)</h3>
-              <div class="subheading mb-3">NodeJS, MySQL(Sequlize), AWS, SSL, Googlemap API, HyperPay payment gateway</div>
-              <p>Sbarro is E-commerce pizza delivery site. Its a largest pizza delivery chain in saudi.</p>
-            </div>
-          </div>
-
-           <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">helpsters (helpsters.ae)</h3>
-              <div class="subheading mb-3">NodeJS, MySQL(Sequlize), AWS, SSL, payment gateway</div>
-              <p>Helpsters cleaning services is a professional provider of high quality cleaning services across UAE.</p>
-            </div>
-          </div>
-           <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Brew92 (ecomtest.brew92.com:6080)</h3>
-              <div class="subheading mb-3">NodeJS, MySQL(Sequlize), AWS, SSL, HyperPay payment gateway,ARAMEX and SMSA shipping</div>
-              <p>Brew92 is E-commerce site for Brew Coffee.</p>
-            </div>
-          </div>
-           <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">mybeamlabel ( mybeamlabel.com )</h3>
-              <div class="subheading mb-3">CodeIgniter, Ajax, FancyProductDesigner, featherlight, Canvas Bootstrap</div>
-              <p>mybeamlabel website allows customers to customize image and name on JIM BEAM bottle.</p>
-            </div>
-          </div>
-           <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">NewtronicsSolar ( newtronicssolar.in )</h3>
-              <div class="subheading mb-3">CodeIgniter, Ajax, CSS, Html, Bootstrap</div>
-              <p>CodeIgniter,Ajax,CSS,Html,Bootstrap Description: Newtronics Solar is informatics website of solar products. it's a CMS where every content can be handled
-                from backend</p>
-            </div>
-          </div>
-           <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Thaifestival (thaifestvic.com)</h3>
-              <div class="subheading mb-3">Laravel, Ajax, Css, Html , Bootstrap</div>
-              <p>Thaifestival is Melbourne thaifestival informatics website. All content of website are dynamic.</p>
-            </div>
-          </div>
-           <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">JD Providore (jdprovidore.com.au)</h3>
-              <div class="subheading mb-3">Opencart, HTML Audio, AWS</div>
-              <p>JD Providore provide fresh fruits ,vegetables, herb ,eggs. customers can place order by either site or voice
-                  message. voice message will be save at AWS server and using cron we transfer that to hosting server where user can
-                  listen that voice message and create order according to it</p>
-            </div>
-          </div>
-          <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Integra Windows AND LINUX[US]</h3>
-              <div class="subheading mb-3">PHP, Windows sql server, Ajax, Css, Html, Bootstrap, Amchart, Win2008R2, mongodb, Linux, MongoAtlas</div>
-              <p>The main aim of Intergra is to create graphical representation of sensor data placed at different location and show alert if value of sensor is reach peakvalue.</p>
-            </div>
-          </div>
-          <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">MTNPARK ROCKS(www.mtnparkrocks.com)</h3>
-              <div class="subheading mb-3">CI, AWS, PAYPAL, Mysql</div>
-              <p>MTNPARK ROCKS is a real state  sales, leaseing, property management website</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
-        <div class="my-auto">
-          <h2 class="mb-5">Interests</h2>
-          <p>Apart from being a web developer, I enjoy most of my time being outdoors.playing cricket, workout, reading, virtualgaming, traveling, mediation.</p>
-          <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the web development world.</p>
-        </div>
-      </section>
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
-        <div class="my-auto">
-          <h2 class="mb-5">Awards &amp; Certifications</h2>
-          <ul class="fa-ul mb-0">
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              Got top perfoemer certificate for good work in TOYOTA project (Sourcebits Technology).</li>
-            <li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              Trainee at WS CUBE TECH Jodhpur as a part of VII Semester Engineering Curriculum
-              Completed Four Weeks Training at WS Cube Tech as PHP trainee</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              Attended the certified seminar of the HACKING TECHNOLOGIES which was led by Mr.
-              RAHUL TAYGI(Leading Indian Ethical Hacker)</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              3<sup>rd</sup>
-              Captain Team in District School Cricket Tournament and Secured 3rd Position</li>
-          </ul>
-        </div>
-      </section>
-
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#case-study">CX4U</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <main id="top">
+    <section class="shell hero" id="about">
+      <div>
+        <span class="kicker">Principal Application Software Engineer</span>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <h1>
+          Nikhil <span class="accent-text">Parihar</span>
+        </h1>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/resume.min.js"></script>
+        <p class="hero-copy">
+          Principal Application Software Engineer with 10+ years of experience building
+          enterprise applications, cloud-based customer experience platforms and complex
+          system integrations. Strongest hands-on expertise in JavaScript, TypeScript,
+          React, Node.js, Oracle JET, VBCS, REST APIs, cloud integration, automated testing
+          and AI-enabled workflows.
+        </p>
 
-  </body>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#experience">View Experience</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/nikhil-parihar-74a0595b/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-secondary" href="mailto:nikhcse33@gmail.com">Email</a>
+        </div>
 
+        <div class="stats">
+          <div class="stat">
+            <strong>10+ years</strong>
+            <span>Software engineering</span>
+          </div>
+          <div class="stat">
+            <strong>Oracle</strong>
+            <span>Principal engineering role</span>
+          </div>
+          <div class="stat">
+            <strong>Enterprise CX</strong>
+            <span>Cloud, APIs and AI</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="identity">
+          <div class="avatar">NP</div>
+          <div>
+            <h2>Profile Snapshot</h2>
+            <p>Bengaluru, India</p>
+          </div>
+        </div>
+
+        <div class="focus-list">
+          <div class="focus-item">
+            <strong>Primary stack</strong>
+            <span>JavaScript · TypeScript · React · Node.js</span>
+          </div>
+          <div class="focus-item">
+            <strong>Enterprise platforms</strong>
+            <span>Oracle JET · VBCS · OIC</span>
+          </div>
+          <div class="focus-item">
+            <strong>Cloud & scale</strong>
+            <span>OCI · AWS · Kubernetes · Kafka</span>
+          </div>
+          <div class="focus-item">
+            <strong>AI focus</strong>
+            <span>Generative AI · RAG · AI chat systems</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="skills">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Technical Expertise</h2>
+          <p>
+            A senior engineering profile combining frontend depth, cloud-native application
+            delivery, enterprise integrations, quality engineering and practical AI experience.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Frontend & Application Engineering</h3>
+            <p>Building enterprise user interfaces, workflow-heavy applications and responsive web experiences.</p>
+            <div class="tag-list">
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Oracle JET</span>
+              <span class="tag">KnockoutJS</span>
+              <span class="tag">VBCS</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Backend, APIs & Integration</h3>
+            <p>Designing service integrations, secure API interactions and enterprise connectivity.</p>
+            <div class="tag-list">
+              <span class="tag">Node.js</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">SOAP</span>
+              <span class="tag">OAuth 2.0</span>
+              <span class="tag">Helidon exposure</span>
+              <span class="tag">Oracle Integration Cloud</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Cloud, Data & Messaging</h3>
+            <p>Working across cloud platforms, scalable adapters, event-driven flows and enterprise data systems.</p>
+            <div class="tag-list">
+              <span class="tag">Oracle Cloud</span>
+              <span class="tag">AWS</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Apache Kafka</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">NoSQL</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>AI, Quality & Delivery</h3>
+            <p>Applying AI capabilities while maintaining strong automated testing and delivery discipline.</p>
+            <div class="tag-list">
+              <span class="tag">Generative AI</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Vector Databases</span>
+              <span class="tag">Selenium</span>
+              <span class="tag">JMeter</span>
+              <span class="tag">Jenkins</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>
+            Progressive ownership across enterprise software delivery, architecture,
+            integrations, performance, testing and cross-functional collaboration.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="role">
+            <div class="role-meta">
+              <h3>Principal Application Software Engineer</h3>
+              <p>Oracle</p>
+              <p>Sep 2024 – Present</p>
+            </div>
+            <div class="role-body">
+              <ul>
+                <li>Lead and contribute to enterprise application development across user interfaces, REST APIs, cloud integrations and deployment workflows.</li>
+                <li>Drive technical design, implementation quality, application performance and release readiness.</li>
+                <li>Partner with Product Managers, UX Designers and Architects to translate business requirements into scalable product solutions.</li>
+                <li>Contribute to AI-enabled customer experience capabilities and enterprise workflow automation.</li>
+                <li>Support code reviews, automated testing, CI/CD and production issue resolution.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role-meta">
+              <h3>Senior Software Engineer</h3>
+              <p>Oracle</p>
+              <p>Sep 2021 – Sep 2024</p>
+            </div>
+            <div class="role-body">
+              <p>
+                Worked on Customer Experience for Utilities (CX4U), a cloud-based suite
+                connecting Oracle Fusion applications with Oracle Utilities systems.
+              </p>
+              <ul>
+                <li>Built a unified customer view for agents across billing, usage data, service requests and knowledge content.</li>
+                <li>Delivered customer engagement capabilities across chat, email, SMS and AI-assisted support.</li>
+                <li>Optimised dashboard features and REST APIs for better performance and responsiveness.</li>
+                <li>Managed deployment and configuration of Kubernetes adapters for scalable operations.</li>
+                <li>Designed REST APIs and microservices integrating with Oracle Utilities CIS.</li>
+                <li>Created UI acceptance, functional and browser-rendering test suites and automated test-data seeding using Node.js.</li>
+                <li>Implemented Jenkins pipelines for unit, regression and functional testing.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role-meta">
+              <h3>Product Development Engineer</h3>
+              <p>Sugoi Labs / SourceBits</p>
+              <p>Apr 2018 – Sep 2021</p>
+            </div>
+            <div class="role-body">
+              <ul>
+                <li>Built web and mobile application features using JavaScript, React, React Native, Node.js and AWS.</li>
+                <li>Integrated authentication, payments, maps, video and third-party APIs.</li>
+                <li>Collaborated with distributed teams to deliver releases and resolve production defects.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role-meta">
+              <h3>Senior Web Developer</h3>
+              <p>ITRADICALS Software Solution</p>
+              <p>Dec 2015 – Mar 2018</p>
+            </div>
+            <div class="role-body">
+              <ul>
+                <li>Developed web applications, APIs and e-commerce solutions for multiple industries.</li>
+                <li>Built frontend and backend features using JavaScript, PHP and SQL databases.</li>
+                <li>Integrated payment gateways, logistics services and AWS infrastructure.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-study">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Featured Case Study</h2>
+          <p>
+            A recruiter-friendly summary of your strongest recent enterprise project.
+          </p>
+        </div>
+
+        <div class="case-study">
+          <div class="case-panel">
+            <span class="project-label">Oracle CX4U</span>
+            <h3>Customer Experience for Utilities</h3>
+            <p>
+              A cloud-native customer experience platform integrating Oracle Fusion and
+              Oracle Utilities systems to give service agents a unified operational view.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Oracle JET</span>
+              <span class="tag">VBCS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Oracle AI</span>
+              <span class="tag">Kubernetes</span>
+            </div>
+          </div>
+
+          <div class="case-panel">
+            <h3>Key Contributions</h3>
+            <ul>
+              <li>Integrated customer billing, usage, service requests and knowledge content into one agent experience.</li>
+              <li>Delivered omnichannel workflows across chat, email, SMS and AI-assisted support.</li>
+              <li>Improved dashboard and API performance.</li>
+              <li>Supported scalable adapter deployment on Kubernetes.</li>
+              <li>Automated testing and release validation through Jenkins pipelines.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Selected Projects</h2>
+          <p>
+            Earlier product experience across education, automotive, investment and digital platforms.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="card project-card">
+            <span class="project-label">Web & Mobile</span>
+            <h3>Youngwork</h3>
+            <p>
+              Cross-platform platform supporting young people with skills, confidence and professional connections.
+            </p>
+            <div class="tag-list">
+              <span class="tag">React</span>
+              <span class="tag">React Native</span>
+              <span class="tag">GraphQL</span>
+              <span class="tag">AWS Cognito</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <span class="project-label">Investment Platform</span>
+            <h3>Mineo</h3>
+            <p>
+              Community platform for founders and investors, including cloud integrations and data-driven workflows.
+            </p>
+            <div class="tag-list">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">AWS</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <span class="project-label">Automotive</span>
+            <h3>Toyota UTrust</h3>
+            <p>
+              Vehicle marketplace supporting customer discovery, vehicle listings and inventory-management workflows.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Angular</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">REST APIs</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Certifications & Recognition</h2>
+          <p>
+            Recent learning in Oracle Cloud, Generative AI and prompt engineering,
+            supported by internal recognition for contribution and delivery.
+          </p>
+        </div>
+
+        <div class="cert-grid">
+          <article class="card cert">
+            <div class="cert-badge">AI</div>
+            <div>
+              <h3>OCI 2025 AI Foundations Associate</h3>
+              <p>Oracle</p>
+            </div>
+          </article>
+
+          <article class="card cert">
+            <div class="cert-badge">OCI</div>
+            <div>
+              <h3>OCI 2024 Generative AI Professional</h3>
+              <p>Oracle</p>
+            </div>
+          </article>
+
+          <article class="card cert">
+            <div class="cert-badge">PE</div>
+            <div>
+              <h3>Advanced Prompt Engineering for Everyone</h3>
+              <p>Vanderbilt University · May 2026</p>
+            </div>
+          </article>
+
+          <article class="card cert">
+            <div class="cert-badge">GAI</div>
+            <div>
+              <h3>Introduction to Generative AI for Software Development</h3>
+              <p>DeepLearning.AI · May 2026</p>
+            </div>
+          </article>
+
+          <article class="card cert">
+            <div class="cert-badge">22</div>
+            <div>
+              <h3>OCI Foundations 2022 Certified Associate</h3>
+              <p>Oracle</p>
+            </div>
+          </article>
+
+          <article class="card cert">
+            <div class="cert-badge">★</div>
+            <div>
+              <h3>Awards & Recognition</h3>
+              <p>CXI Employee Recognition FY2024 · Peer2Peer TEAs FY25 Q1 and Q4</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="shell">
+        <div class="contact-panel">
+          <div>
+            <h2>Let’s Connect</h2>
+            <p>
+              Open to conversations around principal-level engineering, enterprise applications,
+              cloud integrations, customer experience platforms and practical Generative AI.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:nikhcse33@gmail.com">Email Me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/nikhil-parihar-74a0595b/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      © <span id="year"></span> Nikhil Parihar
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
